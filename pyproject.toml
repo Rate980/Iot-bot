@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "iot-bot"
+version = "0.1.0"
+description = ""
+authors = ["Rate980 <ratei.5673@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+discord-py = "^2.3.1"
+python-dotenv = "^1.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
