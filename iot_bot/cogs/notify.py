@@ -9,7 +9,6 @@ SERVER_ID = int(os.environ["SERVER_ID"])
 CHANNEL_ID = int(os.environ["CHANNEL_ID"])
 ROLE_ID = int(os.environ["ROLE_ID"])
 
-
 _log = logging.getLogger(__name__)
 
 
