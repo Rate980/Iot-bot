@@ -52,9 +52,7 @@ class Notify(commands.Cog):
             _log.debug("channel is not instance of discord.abc.Messageable")
             return
 
-        message = None
-
-        if after.channel is None:
+        if before.channel is not None:
             _log.debug("退出")
             if before.channel is None:
                 _log.debug("before.channel is None")
@@ -68,7 +66,10 @@ class Notify(commands.Cog):
 
             embed = discord.Embed(title="通話終了", color=discord.Color.red())
             embed.add_field(name="`チャンネル`", value=before.channel.mention)
-        else:
+            message = await channel.send(embed=embed)
+            _log.debug(f"url: {message.jump_url}")
+
+        if after.channel is not None:
             if len(after.channel.members) != 1:
                 _log.debug(
                     f"len(after.channel.members):{len(after.channel.members)} < 1"
@@ -83,10 +84,8 @@ class Notify(commands.Cog):
                 value=datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S"),
             )
             message = f"<@&{ROLE_ID}>"
-
-        _log.debug("送信")
-        message = await channel.send(message, embed=embed)
-        _log.debug(f"url: {message.jump_url}")
+            message = await channel.send(message, embed=embed)
+            _log.debug(f"url: {message.jump_url}")
 
 
 async def setup(bot: commands.Bot):
