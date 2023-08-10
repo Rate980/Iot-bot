@@ -1,12 +1,13 @@
 import datetime
 import logging
+import os
 
 import discord
 from discord.ext import commands
 
-SERVER_ID = 524972650548953126
-CHANNEL_ID = 560831839061671957
-ROLE_ID = 743379363461988362
+SERVER_ID = int(os.environ["SERVER_ID"])
+CHANNEL_ID = int(os.environ["CHANNEL_ID"])
+ROLE_ID = int(os.environ["ROLE_ID"])
 
 
 _log = logging.getLogger(__name__)
