@@ -9,6 +9,8 @@ from dotenv import load_dotenv
 
 class Bot(commands.Bot):
     async def setup_hook(self):
+        for x in ["notify"]:
+            await self.load_extension(f"iot_bot.cogs.{x}")
         await self.tree.sync()
 
 
