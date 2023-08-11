@@ -39,7 +39,8 @@ class Notify(commands.Cog):
             _log.debug("member.bot")
             return
 
-        if member.guild.afk_channel == after.channel:
+        afk_channel = member.guild.afk_channel
+        if afk_channel == after.channel or afk_channel == before.channel:
             _log.debug("AFK")
             return
 
